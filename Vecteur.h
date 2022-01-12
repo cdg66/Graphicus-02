@@ -6,13 +6,13 @@
  *    Ce fichier fait partie de la distribution de Graphicus.
 ********/
 
-#ifndef COUCHE_H
-#define COUCHE_H
+#ifndef VECTEUR_H
+#define VECTEUR_H
 #include "forme.h"
 class Vecteur
 {
 private:
-  forme *tableau;
+  Forme *tableau;
   int taille; // indice max courent dans le vecteur
   int capacite; // maximun du vecteur.
 
@@ -23,9 +23,9 @@ public:
   int getTaille();
   bool Empty();
   bool isEmpty();
-  bool setItemToTail(forme* forme);
-  forme* removeItem(int index);
-  forme* getItem(int index);
+  bool setItemToTail(Forme* Forme);
+  Forme* removeItem(int index);
+  Forme* getItem(int index);
   virtual void afficher(ostream & s);
   
 

@@ -9,6 +9,7 @@
 #include "forme.h" 
 #include "rectangle.h"
 #include "Cercle.h"
+#include "Vecteur.h"
 
 using namespace std;
 
@@ -17,6 +18,9 @@ int main()
    Tests tests;
    Forme *pr = new Rectangle;
    Forme *pc = new Cercle;
+   Vecteur *v = new Vecteur;
+   v->setItemToTail(pr);
+   v->setItemToTail(pc);
    //Carre = new Rectangle;
    tests.tests_application();
    delete pr;

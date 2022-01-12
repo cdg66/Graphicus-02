@@ -44,13 +44,13 @@ bool Vecteur::isEmpty()
   }
   return 0;
 }
-bool Vecteur::setItemToTail(forme* forme)
+bool Vecteur::setItemToTail(Forme* Forme)
 {
   int i;
   if (taille >= capacite) // fin du buffer
   {
     capacite = capacite * 2;
-    forme *tabtemp = new Forme[capacite]; // nouveau buffer double
+    Forme *tabtemp = new Forme[capacite]; // nouveau buffer double
     for (i = 0 ; i < taille; i++) // copie l'ancien
     {
       tabtemp[i] = tableau[i];
@@ -58,16 +58,16 @@ bool Vecteur::setItemToTail(forme* forme)
     delete tableau;   
     tableau = tabletemp;
   }
-  // insert forme
-  tableau[taille] = &forme;
+  // insert Forme
+  tableau[taille] = &Forme;
   taille++;
   
 }
-forme* Vecteur::removeItem(int index)
+Forme* Vecteur::removeItem(int index)
 {
 
 }
-forme* Vecteur::getItem(int index)
+Forme* Vecteur::getItem(int index)
 {
   if ((index > 0) || (index >= taille) )
   {
