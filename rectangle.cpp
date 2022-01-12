@@ -8,10 +8,9 @@ using namespace std;
 
 Rectangle::Rectangle()
 {
-  width = 0;
-  length = 0;
+  width = 1;
+  length = 1;
 }
-
 
 Rectangle::Rectangle(double w, double l)
 {
@@ -29,7 +28,7 @@ Rectangle::~Rectangle()
 
 void Rectangle::setWidth(double w)
 {
-   if (w >= 0)
+   if (w > 0)
       width = w;
    else
    {
@@ -44,7 +43,7 @@ void Rectangle::setWidth(double w)
 
 void Rectangle::setLength(double len)
 {
-   if (len >= 0)
+   if (len > 0)
       length = len;
    else
    {
@@ -75,7 +74,15 @@ double Rectangle::getLength() const
 // getArea returns the product of width times length.        *
 //************************************************************
 
-double Rectangle::getArea() const
+virtual double Rectangle::aire() const
 {
    return width * length;
 }
+
+virtual void Rectangle::afficher(ostream & s)
+{
+   s << "ceci est un rectangle d'aire:" << aire() << "u^2" << endl;
+}
+
+
+

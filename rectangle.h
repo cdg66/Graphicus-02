@@ -18,11 +18,14 @@ class Rectangle: public Forme
       Rectangle();
       Rectangle(double w, double l);
       ~Rectangle();
+      
+      virtual double aire() = 0;
+      virtual void afficher(ostream & s) = 0;
+      
       void setWidth(double);
       void setLength(double);
       double getWidth() const;
       double getLength() const;
-      double getArea() const;
 };
 
 #endif

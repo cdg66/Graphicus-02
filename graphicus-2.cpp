@@ -6,14 +6,16 @@
  *    fichier fait partie de la distribution de Graphicus.
 ********/
 #include "tests.h"
-
+#include "rectangle.h"
 using namespace std;
 
 int main()
 {
    Tests tests;
-   
+   Rectangle* new Rectangle;
+   //Carre = new Rectangle;
    tests.tests_application();
+   delete Carre;
    return 0;
 }
 

@@ -7,6 +7,8 @@ tests.o: tests.cpp
 	g++ tests.cpp -g -c
 forme.o: forme.cpp coordonnee.h
 	g++ forme.cpp -g -c
+rectangle.o: rectangle.cpp forme.h
+	g++ rectangles.cpp -g -c
 couche.o: couche.cpp 
 	g++ couche.cpp -g -c
 canevas.o: canevas.cpp 
