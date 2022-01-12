@@ -2,7 +2,7 @@
 #include <iostream>      // Needed for cout
 #include <cstdlib>       // Needed for the exit function
 
-#define PI = 3.141592653
+#define PI 3.141592653
 
 using namespace std;
 
@@ -16,10 +16,7 @@ Cercle::Cercle(double r)
 {
   rayon = r;
 }
-Cercle::~Cercle()
-{
-
-}
+Cercle::~Cercle(){}
 
 //***********************************************************
 // setWidth sets the value of the member variable width.    *
@@ -51,12 +48,12 @@ double Cercle::getRayon() const
 // getArea returns the product of width times length.        *
 //************************************************************
 
-virtual double Cercle::aire() const
+double Cercle::aire()
 {
    return PI * rayon * rayon;
 }
 
-virtual void Cercle::afficher(ostream & s)
+void Cercle::afficher(ostream & s)
 {
    s << "ceci est un cercle d'aire:" << aire() << "u^2" << endl;
 }

@@ -17,11 +17,11 @@ class Cercle: public Forme
       Cercle(double r);
       ~Cercle();
       
-      virtual double aire() = 0;
-      virtual void afficher(ostream & s) = 0;
+      virtual double aire();
+      virtual void afficher(ostream & s);
       
       void setRayon(double);
-      double getRayon const;
+      double getRayon() const;
 };
 
 #endif

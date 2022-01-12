@@ -74,12 +74,12 @@ double Rectangle::getLength() const
 // getArea returns the product of width times length.        *
 //************************************************************
 
-virtual double Rectangle::aire() const
+double Rectangle::aire() 
 {
    return width * length;
 }
 
-virtual void Rectangle::afficher(ostream & s)
+void Rectangle::afficher(ostream & s)
 {
    s << "ceci est un rectangle d'aire:" << aire() << "u^2" << endl;
 }

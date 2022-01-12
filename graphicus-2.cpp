@@ -6,16 +6,21 @@
  *    fichier fait partie de la distribution de Graphicus.
 ********/
 #include "tests.h"
+#include "forme.h" 
 #include "rectangle.h"
+#include "Cercle.h"
+
 using namespace std;
 
 int main()
 {
    Tests tests;
-   Rectangle* new Rectangle;
+   Forme *pr = new Rectangle;
+   Forme *pc = new Cercle;
    //Carre = new Rectangle;
    tests.tests_application();
-   delete Carre;
+   delete pr;
+   delete pc;
    return 0;
 }
 

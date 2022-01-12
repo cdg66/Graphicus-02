@@ -17,10 +17,10 @@ class Rectangle: public Forme
    public:
       Rectangle();
       Rectangle(double w, double l);
-      ~Rectangle();
+      virtual  ~Rectangle();
       
-      virtual double aire() = 0;
-      virtual void afficher(ostream & s) = 0;
+      virtual double aire();
+      virtual void afficher(ostream & s);
       
       void setWidth(double);
       void setLength(double);
