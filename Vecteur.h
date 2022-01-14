@@ -12,7 +12,7 @@
 class Vecteur
 {
 private:
-  Forme *tableau;
+  Forme* tableau;
   int taille; // indice max courent dans le vecteur
   int capacite; // maximun du vecteur.
 

@@ -6,20 +6,20 @@
  *    Vecteur.h. Ce fichier fait partie de la distribution de Graphicus.
 ********/
 #include "Vecteur.h"
-
+#include "forme.h"
 Vecteur::Vecteur()
 {
   taille = 0;
   capacite = 3;
-  *tableau = new Forme[capacite];
+  //*tableau = new Forme[capacite];
 }
 Vecteur::Vecteur( int CapaciteVecteur)
 {
   taille = 0;
   capacite = CapaciteVecteur;
-  *tableau = new Forme[capacite];
+  //*tableau = new Forme[capacite];  // imposible car la classe est abstaite
 }
-virtual Vecteur::~Vecteur()
+Vecteur::~Vecteur()
 {
   Empty();
   delete tableau;
@@ -30,11 +30,12 @@ int Vecteur::getTaille()
 }
 bool Vecteur::Empty()
 {
-  int i;
-  for (i = 0; i < taille; i++)
-  {
-    delete tableau[i];
-  }
+  //int i;
+  //for (i = 0; i < taille; i++)
+  //{
+    delete tableau;
+    return 0;
+  //}
 }
 bool Vecteur::isEmpty()
 {
@@ -44,44 +45,47 @@ bool Vecteur::isEmpty()
   }
   return 0;
 }
+
+//ants = new *Ant[num_ants];
+
 bool Vecteur::setItemToTail(Forme* Forme)
 {
   int i;
   if (taille >= capacite) // fin du buffer
   {
     capacite = capacite * 2;
-    Forme *tabtemp = new Forme[capacite]; // nouveau buffer double
+    Forme* Temporaire = new Forme[capacite]; // nouveau buffer double
     for (i = 0 ; i < taille; i++) // copie l'ancien
     {
-      tabtemp[i] = tableau[i];
+      Temporaire[i] = tableau[i];
     }
     delete tableau;   
-    tableau = tabletemp;
+    tableau = Temporaire;
   }
   // insert Forme
-  tableau[taille] = &Forme;
+  tableau[taille] = *Forme;
   taille++;
-  
+  return 0;
 }
 Forme* Vecteur::removeItem(int index)
 {
-
+  return NULL;
 }
 Forme* Vecteur::getItem(int index)
 {
   if ((index > 0) || (index >= taille) )
   {
-    return null;
+    return NULL;
   }
-  return tableau[index]
+  return &tableau[index]; // pointer shenanigan
 }
-virtual void Vecteur::afficher(ostream & s)
+void Vecteur::afficher(ostream & s)
 {
   int i;
   for (i = 0 ; i < taille; i++) 
   {
     s << "Figure " << i << ":";
-    tableau[i]->afficher(s);
+    tableau[i].afficher(s);
   }
    
 }
