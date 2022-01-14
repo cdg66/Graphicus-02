@@ -18,9 +18,17 @@
 class Couche
 {
    private:
+   
    int etatCouche;
-   Vecteur formes;
+   int indexCouche
+   Vecteur shapes; 
+   
    public:
+   
+   Couche();
+   ~Couche();
+   bool setIndexCouche(int index);
+   int  getIndexCouche();
    bool setForme(Forme* forme);
    bool removeForme(Forme* forme);
    Forme* getForme(int index);
