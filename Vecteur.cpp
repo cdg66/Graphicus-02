@@ -59,7 +59,7 @@ bool Vecteur::setItemToTail(Forme* forme)
     {
       Temporaire[i] = tableau[i];
     }
-    delete[] tableau; // erreur  
+    delete[] tableau; 
     tableau = Temporaire;
   }
   // insert Forme
@@ -69,7 +69,17 @@ bool Vecteur::setItemToTail(Forme* forme)
 }
 Forme* Vecteur::removeItem(int index)
 {
-  return NULL;
+  Forme* Temporaire = tableau[index];
+  int i;
+  if ((index > 0) || (index >= taille) )
+  {
+    return NULL;
+  }
+  for (i = index; i< capacite; i++)
+  {
+    
+  }
+  return Temporaire; 
 }
 Forme* Vecteur::getItem(int index)
 {
