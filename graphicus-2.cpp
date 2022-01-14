@@ -21,6 +21,7 @@ int main()
    Vecteur *v = new Vecteur;
    v->setItemToTail(pr);
    v->setItemToTail(pc);
+   v->afficher(std::cout);
    //Carre = new Rectangle;
    tests.tests_application();
    delete pr;

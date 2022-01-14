@@ -11,13 +11,13 @@ Vecteur::Vecteur()
 {
   taille = 0;
   capacite = 3;
-  //*tableau = new Forme[capacite];
+  tableau = new Forme*[capacite];  
 }
 Vecteur::Vecteur( int CapaciteVecteur)
 {
   taille = 0;
   capacite = CapaciteVecteur;
-  //*tableau = new Forme[capacite];  // imposible car la classe est abstaite
+  tableau = new Forme*[capacite];  
 }
 Vecteur::~Vecteur()
 {
@@ -48,22 +48,22 @@ bool Vecteur::isEmpty()
 
 //ants = new *Ant[num_ants];
 
-bool Vecteur::setItemToTail(Forme* Forme)
+bool Vecteur::setItemToTail(Forme* forme)
 {
   int i;
   if (taille >= capacite) // fin du buffer
   {
     capacite = capacite * 2;
-    Forme* Temporaire = new Forme[capacite]; // nouveau buffer double
+    Forme** Temporaire = new Forme*[capacite]; // nouveau buffer double
     for (i = 0 ; i < taille; i++) // copie l'ancien
     {
       Temporaire[i] = tableau[i];
     }
-    delete tableau;   
+    delete[] tableau; // erreur  
     tableau = Temporaire;
   }
   // insert Forme
-  tableau[taille] = *Forme;
+  tableau[taille] = forme;
   taille++;
   return 0;
 }
@@ -77,7 +77,7 @@ Forme* Vecteur::getItem(int index)
   {
     return NULL;
   }
-  return &tableau[index]; // pointer shenanigan
+  return tableau[index]; // pointer shenanigan
 }
 void Vecteur::afficher(ostream & s)
 {
@@ -85,7 +85,7 @@ void Vecteur::afficher(ostream & s)
   for (i = 0 ; i < taille; i++) 
   {
     s << "Figure " << i << ":";
-    tableau[i].afficher(s);
+    tableau[i]->afficher(s);
   }
    
 }

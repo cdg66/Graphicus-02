@@ -12,7 +12,7 @@
 class Vecteur
 {
 private:
-  Forme* tableau;
+  Forme**  tableau;
   int taille; // indice max courent dans le vecteur
   int capacite; // maximun du vecteur.
 
@@ -23,7 +23,7 @@ public:
   int getTaille();
   bool Empty();
   bool isEmpty();
-  bool setItemToTail(Forme* Forme);
+  bool setItemToTail(Forme* forme);
   Forme* removeItem(int index);
   Forme* getItem(int index);
   virtual void afficher(ostream & s);
