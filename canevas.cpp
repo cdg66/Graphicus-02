@@ -8,49 +8,97 @@
 
 #include "canevas.h"
 
-Canevas::Canevas()
-{
-}
+Canevas::Canevas(){}
 
-Canevas::~Canevas()
-{
-}
+Canevas::~Canevas(){}
 
+//En attente de couche
 bool Canevas::reinitialiser()
 {
-   return true;
+   for (int i=0; i<MAX_COUCHES; i++){
+      couches[i].setEtatReinitialise();
+   }
+   return false;
 }
 
 bool Canevas::activerCouche(int index)
 {
-   return true;
+    if (index < MAX_COUCHES){
+       if (couches[index].setEtat(ETATACTIF) == true)
+          return true;
+       else
+          return false;
+    }
+    else
+       return false;
 }
 
 bool Canevas::cacherCouche(int index)
 {
-   return true;
+   if (index < MAX_COUCHES){
+       if (couches[index].setEtat(ETATINACTIF) == true)
+          return true;
+       else
+          return false;
+    }
+    else
+       return false;
 }
 
 bool Canevas::ajouterForme(Forme *p_forme)
 {
-   return true;
+   for (int i=0; i<MAX_COUCHES; i++){
+      if (couches[i].getEtat() == ETATACTIF){
+         return couches[i].setForme(p_forme);
+      }
+   }
+   return false;
 }
 
+//En attente de couche
 bool Canevas::retirerForme(int index)
 {
-   return true;
+   for (int i=0; i<MAX_COUCHES; i++){
+      if (couches[i].getEtat() == ETATACTIF){
+         return couches[i].removeForme(index);
+      }
+   }
+   return false;
 }
 
 double Canevas::aire()
 {
-   return 0.0;
+   double aireTotale = 0.0;
+   for (int i=0; i<MAX_COUCHES; i++){
+      aireTotale += couches[i].getAire();
+   }
+   return aireTotale;
 }
 
 bool Canevas::translater(int deltaX, int deltaY)
 {
-   return true;
+   for (int i=0; i<MAX_COUCHES; i++){
+      if (couches[i].getEtat() == ETATACTIF){
+         return couches[i].translaterCouche(deltaX, deltaY);
+      }
+   }
+   return false;
 }
 
 void Canevas::afficher(ostream & s)
 {
+   for (int i=0; i<MAX_COUCHES; i++){
+      if (couches[i].getEtat() == ETATACTIF){
+        s << "Voici la couche demandee d'indexe: "<< couches[i].getIndexCouche() << endl;
+        s << "Celle-ci est composee de: " << endl;
+        couches[i].afficherCouche(s);
+        s << "L'aire totale de toutes les couches est de: " << aire() << endl;
+      }
+   }
 }
+
+
+
+
+
+
