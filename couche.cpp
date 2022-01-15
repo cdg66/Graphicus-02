@@ -73,16 +73,16 @@ bool Couche::translaterCouche(int deltaX, int deltaY)
   int i;
   for (i = 0; i < shapes.getTaille(); i++)
   {
-    cout << "translation:"<< i << endl;
+    //cout << "translation:"<< i << endl;
     Forme* forme = shapes.getItem(i);
     if (forme == NULL)
     {
-      cout << "erreur getitem returned NULL" << endl;
+      //cout << "erreur getitem returned NULL" << endl;
       return false;
     }
-    cout << "translation get:"<< i << endl;
+    //cout << "translation get:"<< i << endl;
     forme->translater(deltaX, deltaY);
-    cout << "fin translation:"<< i << endl;
+    //cout << "fin translation:"<< i << endl;
   }
   return true;
 }
@@ -105,6 +105,8 @@ bool Couche::setEtat(int Etat)
     return false;
   }
   etatCouche = Etat;
+
+  cout << indexCouche <<" " << etatCouche << endl;
   return true;
 }
 

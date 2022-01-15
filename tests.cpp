@@ -112,6 +112,25 @@ void Tests::tests_unitaires_canevas()
 {
    // Tests sur la classe Canevas
    cout << "TEST canevas" << endl;
+   Canevas cnv;
+   
+   //out of bound
+   cnv.activerCouche(6);
+   
+   //test activerCouche, cacherCouche, reinitialiser
+   cnv.activerCouche(1); //simplement activer
+   cnv.afficher(std::cout);
+   
+   cnv.cacherCouche(1); //simplement desactiver
+   cnv.afficher(std::cout);
+   
+   cnv.activerCouche(2); //desactiver par double activation
+   cnv.activerCouche(2);
+   
+   cout<<"patates"<<endl;
+   
+   cnv.reinitialiser(); //reinitialiser
+   cnv.afficher(std::cout);
 }
 
 void Tests::tests_unitaires()

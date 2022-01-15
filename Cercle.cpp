@@ -55,7 +55,7 @@ double Cercle::aire()
 
 void Cercle::afficher(ostream & s)
 {
-   s << "ceci est un cercle d'aire:" << aire() << "u^2" << endl;
+   s << "ceci est un cercle d'aire: " << aire() << " u^2" << endl;
 }
 
 

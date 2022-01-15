@@ -81,7 +81,7 @@ double Rectangle::aire()
 
 void Rectangle::afficher(ostream & s)
 {
-   s << "ceci est un rectangle d'aire:" << aire() << "u^2" << endl;
+   s << "ceci est un rectangle d'aire: " << aire() << " u^2" << endl;
 }
 
 
