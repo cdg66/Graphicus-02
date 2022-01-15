@@ -33,6 +33,10 @@ int  Couche::getIndexCouche()
 
 bool Couche::setForme(Forme* forme)
 {
+  if ((etatCouche == ETATINIT)|| (etatCouche == ETATINACTIF))
+  {
+    return false;
+  }
   if (shapes.setItemToTail(forme) == 0)
   {
     return true;
@@ -42,6 +46,10 @@ bool Couche::setForme(Forme* forme)
 
 bool Couche::removeForme(int index)
 {
+   if ((etatCouche == ETATINIT)|| (etatCouche == ETATINACTIF))
+   {
+     return false;
+   }
    if (index < 0 || index > shapes.getTaille())
    {
      return false;
@@ -71,6 +79,10 @@ double Couche::getAire()
 bool Couche::translaterCouche(int deltaX, int deltaY)
 {
   int i;
+  if ((etatCouche == ETATINIT)|| (etatCouche == ETATINACTIF))
+  {
+    return false;
+  }
   for (i = 0; i < shapes.getTaille(); i++)
   {
     //cout << "translation:"<< i << endl;
