@@ -20,7 +20,7 @@ class Couche
    private:
    
    int etatCouche;
-   int indexCouche
+   int indexCouche;
    Vecteur shapes; 
    
    public:
@@ -30,12 +30,13 @@ class Couche
    bool setIndexCouche(int index);
    int  getIndexCouche();
    bool setForme(Forme* forme);
-   bool removeForme(Forme* forme);
+   bool removeForme(int index);
    Forme* getForme(int index);
-   int getAire();
+   double getAire();
    bool translaterCouche(int deltaX, int deltaY);
    bool setEtatReinitialise();
    bool setEtat(int Etat);
+   int getEtat();
    void afficherCouche(ostream & s); 
 };
 

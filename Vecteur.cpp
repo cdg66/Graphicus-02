@@ -21,8 +21,8 @@ Vecteur::Vecteur( int CapaciteVecteur)
 }
 Vecteur::~Vecteur()
 {
-  Empty();
-  delete tableau;
+  //Empty();
+  //delete[] tableau;
 }
 int Vecteur::getTaille()
 {
@@ -33,7 +33,8 @@ bool Vecteur::Empty()
   //int i;
   //for (i = 0; i < taille; i++)
   //{
-    delete tableau;
+    delete[] tableau;
+    taille= 0;
     return 0;
   //}
 }
@@ -71,19 +72,20 @@ Forme* Vecteur::removeItem(int index)
 {
   Forme* Temporaire = tableau[index];
   int i;
-  if ((index > 0) || (index >= taille) )
+  if ((index < 0) || (index >= taille) )
   {
     return NULL;
   }
-  for (i = index; i< capacite; i++)
+  for (i = index; i < capacite; i++)
   {
-    
+    tableau[i] = tableau[i+1];
   }
+  taille--;
   return Temporaire; 
 }
 Forme* Vecteur::getItem(int index)
 {
-  if ((index > 0) || (index >= taille) )
+  if ((index < 0) || (index >= taille) )
   {
     return NULL;
   }

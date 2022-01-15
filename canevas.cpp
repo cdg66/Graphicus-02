@@ -8,7 +8,10 @@
 
 #include "canevas.h"
 
-Canevas::Canevas(){}
+Canevas::Canevas()
+{
+  couches[0].setEtat(ETATACTIF); // set la premiere couche comme etat active
+}
 
 Canevas::~Canevas(){}
 

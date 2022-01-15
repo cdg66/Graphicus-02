@@ -1,6 +1,6 @@
 
-graphicus-2: graphicus-2.o canevas.o couche.o forme.o rectangle.o Cercle.o tests.o Vecteur.o
-	g++ -o graphicus graphicus-2.o canevas.o couche.o forme.o rectangle.o Cercle.o tests.o Vecteur.o
+graphicus-2: graphicus-2.o canevas.o couche.o forme.o rectangle.o Cercle.o tests.o Vecteur.o carre.o
+	g++ -o graphicus graphicus-2.o canevas.o couche.o forme.o rectangle.o Cercle.o tests.o Vecteur.o carre.o
 
 graphicus-2.o: graphicus-2.cpp tests.h forme.o rectangle.o Cercle.o
 	g++ graphicus-2.cpp -g -c
@@ -17,6 +17,9 @@ Vecteur.o: Vecteur.cpp forme.h
 rectangle.o: rectangle.cpp forme.h
 	g++ rectangle.cpp -g -c
 	
+carre.o: carre.cpp forme.h rectangle.h
+	g++ carre.cpp -g -c
+		
 Cercle.o: Cercle.cpp forme.h
 	g++ Cercle.cpp -g -c
 	
