@@ -102,7 +102,9 @@ double Carre::aire()
 
 void Carre::afficher(ostream & s)
 {
-   s << "ceci est un carree d'aire:" << aire() << "u^2" << endl;
+  Coordonnee cord;
+  cord = getAncrage();
+  s << "carre de " << getWidth() << " u par " << getLength() << " u dont l'aire est de " << aire() << " u^2" << " situe aux coordonnees (" << cord.x << ", "<< cord.y << ") .\n" << endl;
 }
 
 

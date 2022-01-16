@@ -114,27 +114,35 @@ void Tests::tests_unitaires_couche()
 
 void Tests::tests_unitaires_canevas()
 {
-   // Tests sur la classe Canevas
-   cout << "TEST canevas" << endl;
-   Canevas cnv;
-   
-   //out of bound
-   cnv.activerCouche(6);
-   
-   //test activerCouche, cacherCouche, reinitialiser
-   cnv.activerCouche(1); //simplement activer
-   cnv.afficher(std::cout);
-   
-   cnv.cacherCouche(1); //simplement desactiver
-   cnv.afficher(std::cout);
-   
-   cnv.activerCouche(2); //desactiver par double activation
-   cnv.activerCouche(2);
-   
-   cout<<"patates"<<endl;
-   
-   cnv.reinitialiser(); //reinitialiser
-   cnv.afficher(std::cout);
+  // Tests sur la classe Canevas
+  cout << "\nTEST canevas\n" << endl;
+  Canevas cnv;
+  //out of bound
+  cnv.activerCouche(6);
+  //test activerCouche, cacherCouche, reinitialiser
+  cnv.activerCouche(1); //simplement activer
+  cnv.afficher(std::cout);
+  cnv.cacherCouche(1); //simplement desactiver
+  cnv.afficher(std::cout);
+  cnv.activerCouche(2); //desactiver par double activation
+  cnv.activerCouche(2);
+  cnv.reinitialiser(); //reinitialiser
+  cnv.afficher(std::cout);
+  //test ajouterForme
+  cnv.ajouterForme(new Rectangle);
+  cnv.ajouterForme(new Cercle);
+  cnv.ajouterForme(new Carre);
+  cnv.afficher(std::cout);
+  //test retirerForme
+  cnv.retirerForme(2);
+  cnv.retirerForme(1);
+  cnv.retirerForme(0);
+  cnv.afficher(std::cout);
+  //test translater
+  cnv.ajouterForme(new Rectangle(15, 20));
+  cnv.ajouterForme(new Cercle(2));
+  cnv.translater(4, 3);
+  cnv.afficher(std::cout);
 }
 
 void Tests::tests_unitaires()
