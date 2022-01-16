@@ -65,9 +65,9 @@ double Cercle::aire()
 
 void Cercle::afficher(ostream & s)
 {
-  Coordonnee cord;
-  cord = getAncrage();
-  s << "cercle de rayon de " << getRayon() << " u dont l'aire est de " << aire() << " u^2" << " situe aux coordonnees (" << cord.x << ", "<< cord.y << ") .\n" << endl;
+   Coordonnee cord;
+   cord = getAncrage();
+   s << "ceci est un cercle de rayon de " << getRayon() << " u dont l'aire est de " << aire() << " u^2" << " situe aux coordonnees (" << cord.x << ", "<< cord.y << ") .\n" << endl;
 }
 
 

@@ -92,9 +92,9 @@ double Rectangle::aire()
 
 void Rectangle::afficher(ostream & s)
 {
-  Coordonnee cord;
-  cord = getAncrage();
-  s << "rectangle de " << getWidth() << " u par " << getLength() << " u dont l'aire est de " << aire() << " u^2" << " situe aux coordonnees (" << cord.x << ", "<< cord.y << ") .\n" << endl;
+   Coordonnee cord;
+   cord = getAncrage();
+   s << "ceci est un rectangle de " << getWidth() << " u par " << getLength() << " u dont l'aire est de " << aire() << " u^2" << " situe aux coordonnees (" << cord.x << ", "<< cord.y << ") .\n" << endl;
 }
 
 

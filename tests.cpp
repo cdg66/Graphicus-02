@@ -9,10 +9,9 @@
 
 #include "tests.h"
 #include <iostream>
-
-#define TESTUNITAIRE
+//#define TESTUNITAIRE
 #define TESTCAS1
-#define TESTCAS2
+//#define TESTCAS2
 
 using namespace std;
 
@@ -114,35 +113,44 @@ void Tests::tests_unitaires_couche()
 
 void Tests::tests_unitaires_canevas()
 {
-  // Tests sur la classe Canevas
-  cout << "\nTEST canevas\n" << endl;
-  Canevas cnv;
-  //out of bound
-  cnv.activerCouche(6);
-  //test activerCouche, cacherCouche, reinitialiser
-  cnv.activerCouche(1); //simplement activer
-  cnv.afficher(std::cout);
-  cnv.cacherCouche(1); //simplement desactiver
-  cnv.afficher(std::cout);
-  cnv.activerCouche(2); //desactiver par double activation
-  cnv.activerCouche(2);
-  cnv.reinitialiser(); //reinitialiser
-  cnv.afficher(std::cout);
-  //test ajouterForme
-  cnv.ajouterForme(new Rectangle);
-  cnv.ajouterForme(new Cercle);
-  cnv.ajouterForme(new Carre);
-  cnv.afficher(std::cout);
-  //test retirerForme
-  cnv.retirerForme(2);
-  cnv.retirerForme(1);
-  cnv.retirerForme(0);
-  cnv.afficher(std::cout);
-  //test translater
-  cnv.ajouterForme(new Rectangle(15, 20));
-  cnv.ajouterForme(new Cercle(2));
-  cnv.translater(4, 3);
-  cnv.afficher(std::cout);
+   // Tests sur la classe Canevas
+   cout << "\nTEST canevas\n" << endl;
+   Canevas cnv;
+   
+   //out of bound
+   cnv.activerCouche(6);
+   
+   //test activerCouche, cacherCouche, reinitialiser
+   cnv.activerCouche(1); //simplement activer
+   cnv.afficher(std::cout);
+   
+   cnv.cacherCouche(1); //simplement desactiver
+   cnv.afficher(std::cout);
+   
+   cnv.activerCouche(2); //desactiver par double activation
+   cnv.activerCouche(2);
+   
+   
+   cnv.reinitialiser(); //reinitialiser
+   cnv.afficher(std::cout);
+   
+   //test ajouterForme
+   cnv.ajouterForme(new Rectangle);
+   cnv.ajouterForme(new Cercle);
+   cnv.ajouterForme(new Carre);
+   cnv.afficher(std::cout);
+   
+   //test retirerForme
+   cnv.retirerForme(2);
+   cnv.retirerForme(1);
+   cnv.retirerForme(0);
+   cnv.afficher(std::cout);
+   
+   //test translater
+   cnv.ajouterForme(new Rectangle(15, 20));
+   cnv.ajouterForme(new Cercle(2));
+   cnv.translater(4, 3);
+   cnv.afficher(std::cout);
 }
 
 void Tests::tests_unitaires()
@@ -175,26 +183,26 @@ void Tests::tests_application_cas_01()
    Coordonnee cord;
    cout << "TESTS APPLICATION (CAS 01)" << endl; 
    // Il faut ajouter les operations realisant ce scenario de test.
-   cout << "------------Etape 1--------------" << endl; 
+   cout << "\n------------Etape 1--------------\n" << endl; 
    if(cnv.activerCouche(1) == true)
    {
      cout << "couche 1 active" << endl;
    }
    else
    {
-     cout << "failed to activer couche 1 : exiting";
+     cout << "Erreur pour activer couche 1 : exiting";
      return;
    }
    
    
-   cout << "------------Etape 2--------------" << endl; 
+   cout << "\n------------Etape 2--------------\n" << endl; 
    if(cnv.ajouterForme(new Rectangle(2, 3)) == true)
    {
      cout << "rectangle ajoute" << endl;
    }
    else
    {
-     cout << "failed to ajouter rectangle: exiting" << endl;
+     cout << "Erreur pour ajouter rectangle: exiting" << endl;
      return;
    }
    
@@ -204,7 +212,7 @@ void Tests::tests_application_cas_01()
    }
    else
    {
-     cout << "failed to ajouter carre: exiting" << endl;
+     cout << "Erreur pour ajouter carre: exiting" << endl;
      return;
    }
    
@@ -214,28 +222,195 @@ void Tests::tests_application_cas_01()
    }
    else
    {
-     cout << "failed to ajouter carre: exiting" << endl;
+     cout << "Erreur pour ajouter carre: exiting" << endl;
      return;
    }
    
    
-   cout << "------------Etape 3--------------" << endl; 
-   cout << "------------Etape 4--------------" << endl; 
-   cout << "------------Etape 5--------------" << endl; 
-   cout << "------------Etape 6--------------" << endl; 
-   cout << "------------Etape 7--------------" << endl; 
-   cout << "------------Etape 8--------------" << endl; 
-   cout << "------------Etape 9--------------" << endl; 
-   cout << "------------Etape 10-------------" << endl; 
-   cout << "------------Etape 11-------------" << endl; 
-   cout << "------------Etape 12-------------" << endl; 
-   cout << "------------Etape 13-------------" << endl; 
-   cout << "------------Etape 14-------------" << endl; 
-   cout << "------------Etape 15-------------" << endl; 
-   cout << "------------Etape 16-------------" << endl; 
-   cout << "------------Etape 17-------------" << endl; 
-   cout << "------------Etape 18-------------" << endl; 
-   cout << "------------Etape 19-------------" << endl; 
+   cout << "\n------------Etape 3--------------\n" << endl; 
+   
+   if(cnv.activerCouche(2) == true)
+   {
+     cout << "couche 2 active" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour activer couche 2 : exiting";
+     return;
+   }
+   
+   cout << "\n------------Etape 4--------------\n" << endl; 
+   
+   //ajout d'un rectangle
+   if(cnv.ajouterForme(new Rectangle(4, 5)) == true)
+   {
+     cout << "rectangle ajoute" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour ajouter rectangle: exiting" << endl;
+     return;
+   }
+   
+   cout << "\n------------Etape 5--------------\n" << endl; 
+   
+   cnv.afficher(std::cout);
+   
+   cout << "\n------------Etape 6--------------\n" << endl; 
+   
+   cout << "L'aire totale du Canevas est de: " << cnv.aire() << " u^2" << endl;
+   
+   cout << "\n------------Etape 7--------------\n" << endl; 
+   
+   //activer couche 0
+   if(cnv.activerCouche(0) == true)
+   {
+     cout << "couche 0 active" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour activer couche 2 : exiting";
+     return;
+   }
+   
+   //ajout d'un rectangle
+   if(cnv.ajouterForme(new Rectangle(1, 1)) == true)
+   {
+     cout << "rectangle ajoute" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour ajouter rectangle: exiting" << endl;
+     return;
+   }
+   
+   //ajout d'un carre
+   if(cnv.ajouterForme(new Carre(1)) == true)
+   {
+     cout << "carre ajoute" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour ajouter carre: exiting" << endl;
+     return;
+   }
+   
+   //ajout d'un cercle
+   if(cnv.ajouterForme(new Cercle(1)) == true)
+   {
+     cout << "cercle ajoute" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour ajouter cercle: exiting" << endl;
+     return;
+   }
+   
+   cout << "\n------------Etape 8--------------\n" << endl; 
+   
+   if(cnv.activerCouche(1) == true)
+   {
+     cout << "couche 1 active" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour activer couche 1 : exiting";
+     return;
+   }
+   
+   if(cnv.translater(5, 5) == true)
+   {
+     cnv.afficher(std::cout);
+   }
+   else
+   {
+     cout << "Erreur pour activer couche 2 : exiting";
+     return;
+   }
+   
+   cout << "\n------------Etape 9--------------\n" << endl;
+   
+   if (cnv.reinitialiserCouche(2) == true)
+   {
+     cout << "couche 2 reinitialisee" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour reinitialiser couche 2 : exiting";
+     return;
+   }
+   
+   cout << "\n------------Etape 10-------------\n" << endl; 
+   
+   if (cnv.reinitialiserCouche(3) == true)
+   {
+     cout << "couche 3 reinitialisee" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour reinitialiser couche 3 : exiting";
+     return;
+   }
+   
+   cnv.afficher(std::cout);
+   
+   cout << "\n------------Etape 11-------------\n" << endl; 
+   
+   if (cnv.reinitialiserCouche(4) == true)
+   {
+     cout << "couche 3 reinitialisee" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour reinitialiser couche 3 : exiting";
+     return;
+   }
+   
+   cout << "\n------------Etape 12-------------\n" << endl; 
+   
+   cnv.afficher(std::cout);
+   
+   cout << "\n------------Etape 13-------------\n" << endl; 
+   
+   cout << "L'aire totale du Canevas est de: " << cnv.aire() << " u^2" << endl;
+   
+   cout << "\n------------Etape 14-------------\n" << endl; 
+   
+   if (cnv.retirerForme(0) == true)
+   {
+     cout << "forme retiree" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour retirer forme" << endl;
+   }
+   
+   cout << "\n------------Etape 15-------------\n" << endl; 
+   
+   cnv.afficher(std::cout);
+   
+   cout << "\n------------Etape 16-------------\n" << endl; 
+   
+   cout << "L'aire totale du Canevas est de: " << cnv.aire() << " u^2" << endl;
+   
+   cout << "\n------------Etape 17-------------\n" << endl; 
+   
+   if (cnv.reinitialiser() == true)
+   {
+     cout << "canevas reinitialise" << endl;
+   }
+   else
+   {
+     cout << "Erreur pour reinitialiser canevas" << endl;
+   }
+   
+   cout << "\n------------Etape 18-------------\n" << endl; 
+   
+   cnv.afficher(std::cout);
+   
+   cout << "\n------------Etape 19-------------\n" << endl; 
+   
+   cout << "L'aire totale du Canevas est de: " << cnv.aire() << " u^2" << endl;
    
 }
 

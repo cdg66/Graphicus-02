@@ -118,7 +118,7 @@ bool Couche::setEtat(int Etat)
   }
   etatCouche = Etat;
 
-  cout << indexCouche <<" " << etatCouche << endl;
+  //cout << indexCouche <<" " << etatCouche << endl;
   return true;
 }
 

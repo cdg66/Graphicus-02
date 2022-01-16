@@ -7,7 +7,7 @@
 ********/
 
 #include "canevas.h"
-#define OUTPUT
+//#define OUTPUT
 Canevas::Canevas()
 {
   for (int i = 0; i < MAX_COUCHES; i++)
@@ -23,15 +23,26 @@ Canevas::~Canevas(){}
 bool Canevas::reinitialiser()
 {
    for (int i=0; i<MAX_COUCHES; i++){
-      couches[i].setEtatReinitialise();
+   
+      if (couches[i].getEtat() != ETATINIT)
+      {
+        couches[i].setEtatReinitialise();  
+      }
+      
    }
    for (int i = 0; i < MAX_COUCHES; i++)
    {
       couches[i].setIndexCouche(i);
    }
-   couches[0].setEtat(ETATACTIF); // set la premiere couche comme etat
-   return false;
+   
+   return couches[0].setEtat(ETATACTIF); // set la premiere couche comme etat
 }
+
+bool Canevas::reinitialiserCouche(int index)
+{
+   return couches[index].setEtatReinitialise();
+}
+
 
 bool Canevas::activerCouche(int index)
 {
@@ -174,14 +185,21 @@ void Canevas::afficher(ostream & s)
    int j = 0;
    #endif
    for (int i=0; i<MAX_COUCHES; i++){
-      //s << "----- couche no: " << i << "-----"<< endl;
-      couches[i].afficherCouche(s);
+      if (couches[i].getEtat() == ETATACTIF){
+        #ifdef OUTPUT
+        j++;
+        #endif
+        s << "Voici la couche demandee d'indexe: "<< couches[i].getIndexCouche() << endl;
+        s << "Celle-ci est composee de: " << endl;
+        couches[i].afficherCouche(s);
+        s << "L'aire totale de toutes les couches est de: " << aire() << endl;
+      }
    }
    #ifdef OUTPUT
-   //if (j == 0)
-   //{
-   //  cout << "ECHEC, rien a afficher" << endl;
-   //}
+   if (j == 0)
+   {
+     cout << "ECHEC, rien a afficher" << endl;
+   }
    #endif
 }
 
