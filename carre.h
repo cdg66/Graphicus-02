@@ -15,6 +15,7 @@ class Carre: public Rectangle
    public:
       Carre();
       Carre(double l);
+      Carre(double l, int X, int Y);
       virtual  ~Carre();
       
       virtual double aire();

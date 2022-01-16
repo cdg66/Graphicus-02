@@ -17,6 +17,7 @@ class Rectangle: public Forme
    public:
       Rectangle();
       Rectangle(double w, double l);
+      Rectangle(double w, double l, int X, int Y);
       virtual  ~Rectangle();
       
       virtual double aire();

@@ -15,6 +15,7 @@ class Cercle: public Forme
    public:
       Cercle();
       Cercle(double r);
+      Cercle(double r, int X, int Y);
       ~Cercle();
       
       virtual double aire();

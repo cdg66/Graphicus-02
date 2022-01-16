@@ -10,6 +10,10 @@
 #include "tests.h"
 #include <iostream>
 
+#define TESTUNITAIRE
+#define TESTCAS1
+#define TESTCAS2
+
 using namespace std;
 
 void Tests::tests_unitaires_formes()
@@ -146,15 +150,85 @@ void Tests::tests_unitaires()
 void Tests::tests_application()
 {
    // Fait tous les tests applicatifs
+   #ifdef TESTUNITAIRE
    tests_unitaires();
+   #endif
+   #ifdef TESTCAS1
    tests_application_cas_01();
+   #endif
+   #ifdef TESTCAS2
    tests_application_cas_02();
+   #endif
 }
 
 void Tests::tests_application_cas_01()
 {
+   Canevas cnv;
+   Coordonnee cord;
    cout << "TESTS APPLICATION (CAS 01)" << endl; 
    // Il faut ajouter les operations realisant ce scenario de test.
+   cout << "------------Etape 1--------------" << endl; 
+   if(cnv.activerCouche(1) == true)
+   {
+     cout << "couche 1 active" << endl;
+   }
+   else
+   {
+     cout << "failed to activer couche 1 : exiting";
+     return;
+   }
+   
+   
+   cout << "------------Etape 2--------------" << endl; 
+   if(cnv.ajouterForme(new Rectangle(2, 3)) == true)
+   {
+     cout << "rectangle ajoute" << endl;
+   }
+   else
+   {
+     cout << "failed to ajouter rectangle: exiting" << endl;
+     return;
+   }
+   
+   if(cnv.ajouterForme(new Carre(4, 2, 3)) == true)
+   {
+     cout << "carre ajoute" << endl;
+   }
+   else
+   {
+     cout << "failed to ajouter carre: exiting" << endl;
+     return;
+   }
+   
+   if(cnv.ajouterForme(new Cercle(6, 7, 8)) == true)
+   {
+     cout << "cercle ajoute" << endl;
+   }
+   else
+   {
+     cout << "failed to ajouter carre: exiting" << endl;
+     return;
+   }
+   
+   
+   cout << "------------Etape 3--------------" << endl; 
+   cout << "------------Etape 4--------------" << endl; 
+   cout << "------------Etape 5--------------" << endl; 
+   cout << "------------Etape 6--------------" << endl; 
+   cout << "------------Etape 7--------------" << endl; 
+   cout << "------------Etape 8--------------" << endl; 
+   cout << "------------Etape 9--------------" << endl; 
+   cout << "------------Etape 10-------------" << endl; 
+   cout << "------------Etape 11-------------" << endl; 
+   cout << "------------Etape 12-------------" << endl; 
+   cout << "------------Etape 13-------------" << endl; 
+   cout << "------------Etape 14-------------" << endl; 
+   cout << "------------Etape 15-------------" << endl; 
+   cout << "------------Etape 16-------------" << endl; 
+   cout << "------------Etape 17-------------" << endl; 
+   cout << "------------Etape 18-------------" << endl; 
+   cout << "------------Etape 19-------------" << endl; 
+   
 }
 
 void Tests::tests_application_cas_02()

@@ -17,6 +17,17 @@ Rectangle::Rectangle(double w, double l)
   width = w;
   length = l;
 }
+
+Rectangle::Rectangle(double w, double l, int X, int Y)
+{ 
+  Coordonnee coord;
+  coord.x = X;
+  coord.y =Y;
+  width = w;
+  length = l;
+  setAncrage(coord);
+}
+
 Rectangle::~Rectangle()
 {
 

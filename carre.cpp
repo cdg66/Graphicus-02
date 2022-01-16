@@ -17,6 +17,18 @@ Carre::Carre(double l)
   Rectangle::setLength(l);
   Rectangle::setWidth(l);
 }
+
+Carre::Carre(double l, int X, int Y)
+{
+  Coordonnee coord;
+  coord.x = X;
+  coord.y =Y;
+  Rectangle::setLength(l);
+  Rectangle::setWidth(l);
+  setAncrage(coord);
+}
+
+
 Carre::~Carre()
 {
 

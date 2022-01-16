@@ -16,6 +16,16 @@ Cercle::Cercle(double r)
 {
   rayon = r;
 }
+
+Cercle::Cercle(double r,  int X, int Y)
+{
+  Coordonnee coord;
+  coord.x = X;
+  coord.y =Y;
+  setAncrage(coord);
+  rayon = r;
+}
+
 Cercle::~Cercle(){}
 
 //***********************************************************
