@@ -94,6 +94,11 @@ Forme* Vecteur::getItem(int index)
 void Vecteur::afficher(ostream & s)
 {
   int i;
+  if (taille == 0)
+  {
+    s << "Vide " << "\n" << endl;
+    return;
+  }
   for (i = 0 ; i < taille; i++) 
   {
     s << "Figure " << i << ":";

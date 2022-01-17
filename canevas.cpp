@@ -40,7 +40,9 @@ bool Canevas::reinitialiser()
 
 bool Canevas::reinitialiserCouche(int index)
 {
-   return couches[index].setEtatReinitialise();
+   
+   couches[index].setEtatReinitialise();
+   return couches[index].setIndexCouche(index); 
 }
 
 
@@ -181,25 +183,18 @@ bool Canevas::translater(int deltaX, int deltaY)
 
 void Canevas::afficher(ostream & s)
 {
-   #ifdef OUTPUT
+  #ifdef OUTPUT
    int j = 0;
    #endif
    for (int i=0; i<MAX_COUCHES; i++){
-      if (couches[i].getEtat() == ETATACTIF){
-        #ifdef OUTPUT
-        j++;
-        #endif
-        s << "Voici la couche demandee d'indexe: "<< couches[i].getIndexCouche() << endl;
-        s << "Celle-ci est composee de: " << endl;
-        couches[i].afficherCouche(s);
-        s << "L'aire totale de toutes les couches est de: " << aire() << endl;
-      }
+      //s << "----- couche no: " << i << "-----"<< endl;
+      couches[i].afficherCouche(s);
    }
    #ifdef OUTPUT
-   if (j == 0)
-   {
-     cout << "ECHEC, rien a afficher" << endl;
-   }
+   //if (j == 0)
+   //{
+   //  cout << "ECHEC, rien a afficher" << endl;
+   //}
    #endif
 }
 

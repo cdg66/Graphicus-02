@@ -129,6 +129,6 @@ int Couche::getEtat()
 void Couche::afficherCouche(ostream & s)
 {
   int i;
-  s << "Couche numero:" << getIndexCouche() << endl;
+  s << "Couche numero:" << getIndexCouche() << "\n"<< endl;
   shapes.afficher(s);
 }
