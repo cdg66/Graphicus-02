@@ -1,0 +1,22 @@
+insertion classe vecteur
+
+
+FONCTION setItemToTail(forme) : statut
+// ajoute une forme a la fin du vecteur
+// forme (Forme*) : pointeur sur la forme a ajouter
+// statut (booleen) : satut de la tache reussi ou echec
+DEBUT
+i (int): iteration // utilise dans la boucle for
+Temporaire (Forme**) : sotcke temporairement le tableau
+
+SI taille >= capacite  ALORS // fin du tableau
+  capacite := capacite * 2 // double le buffer
+  Temporaire := new Forme*[capacite];
+  POUR toutes les valeurs de la liste
+    Temporaire[i] := tableau[i]
+    
+  delete[] tableau;
+  tableau := Temporaire
+tableau[taille] := forme
+taille := taille + 1   
+FIN
